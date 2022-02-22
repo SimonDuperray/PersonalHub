@@ -20,6 +20,12 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
+// HOMEPAGE
 Route.get('/', async ({ view }) => {
   return view.render('welcome')
+})
+
+// GITHUB DASHBOARD
+Route.get('/github-dashboard', async ({ view }) => {
+  return view.render('github-dashboard/gh-db-form')
 })
