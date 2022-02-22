@@ -21,15 +21,21 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 // HOMEPAGE
-Route.get('/', async ({ view }) => {
-  return view.render('welcome')
-})
+Route.get('/', 'HomepagesController.index').as('homepage')
 
 // GITHUB DASHBOARD
-Route.get('/github-dashboard', async ({ view }) => {
-  return view.render('github-dashboard/gh-db-form')
-})
-Route.post('/github-dashboard', 'GhdbFormsController.formProcess')
-Route.get('/github-dashboard/gh-db-dhbd', async ({ view }) => {
-  return view.render('github-dashboard/gh-db')
-})
+Route.get('/github-dashboard', 'GithubDashboardsController.displayForm')
+
+Route.post('/github-dashboard', 'GithubDashboardsController.formProcess')
+
+Route.get('/github-dashboard/dev/:id', 'DashboardController.index').as('form.redirect')
+// Route.get('github-dashboard/dev/userid', ({ view }) => {
+//   return 'redirected to dev/userid'
+// })
+// Route.get('/github-dashboard/dev/:id', async ({ view, params }) => {
+//   console.debug(`> [ROUTER]: ${ params.id }`)
+//   const state = {
+//     id: params.id,
+//   }
+//   return view.render('github-dashboard/gh-db', state)
+// })

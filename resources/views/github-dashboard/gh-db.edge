@@ -7,6 +7,10 @@
      <title>Document</title>
 </head>
 <body>
-     <h1>This is your custom Github dashboard</h1>
+     @if(state)
+          <h1>Hello {{ state.id }}</h1>
+     @else
+          <h1>No pseudo found</h1>
+     @end
 </body>
 </html>
