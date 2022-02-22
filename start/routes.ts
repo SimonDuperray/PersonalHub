@@ -29,3 +29,7 @@ Route.get('/', async ({ view }) => {
 Route.get('/github-dashboard', async ({ view }) => {
   return view.render('github-dashboard/gh-db-form')
 })
+Route.post('/github-dashboard', 'GhdbFormsController.formProcess')
+Route.get('/github-dashboard/gh-db-dhbd', async ({ view }) => {
+  return view.render('github-dashboard/gh-db')
+})
