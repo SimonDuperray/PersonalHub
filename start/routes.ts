@@ -24,18 +24,8 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', 'HomepagesController.index').as('homepage')
 
 // GITHUB DASHBOARD
-Route.get('/github-dashboard', 'GithubDashboardsController.displayForm')
+Route.get('/github-dashboard', 'GithubDashboardsController.displayForm').as('dhbd-form')
 
-Route.post('/github-dashboard', 'GithubDashboardsController.formProcess')
+Route.post('/github-dashboard', 'GithubDashboardsController.formProcess').as('ghdb-form-submitted')
 
-Route.get('/github-dashboard/dev/:id', 'DashboardController.index').as('form.redirect')
-// Route.get('github-dashboard/dev/userid', ({ view }) => {
-//   return 'redirected to dev/userid'
-// })
-// Route.get('/github-dashboard/dev/:id', async ({ view, params }) => {
-//   console.debug(`> [ROUTER]: ${ params.id }`)
-//   const state = {
-//     id: params.id,
-//   }
-//   return view.render('github-dashboard/gh-db', state)
-// })
+Route.get('/github-dashboard/dev', 'DashboardController.index').as('form.redirect')
