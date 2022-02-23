@@ -33,7 +33,12 @@ class GithubDashboardsController {
           this.setDevId(request.requestBody.devId)
           let req_url = `https://api.github.com/users/${this.getDevId()}`;
           console.debug(`> [GHDB-CONTROLLER]: the following request'll be sent: ${ req_url }`)
-          requestModule(req_url, function(error, response, body) {
+          requestModule({
+               url: req_url,
+               headers: {
+                    'User-Agent': 'SimonDuperray'
+               }
+          }, function(error, response, body) {
                console.error('error:', error); 
                console.log('statusCode:', response && response.statusCode); 
                console.log('body:', body); 
